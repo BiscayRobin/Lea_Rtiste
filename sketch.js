@@ -15,7 +15,8 @@ function setup() {
     strokeWeight(10);
 }
 
-
+let SIDES = 4;
+let mouseCleared = false;
 let rotation = 0;
 function draw() {
     clear();
@@ -23,7 +24,22 @@ function draw() {
     let unit = min([height, width]);
     translate(width / 2, height / 2);
     let radius = unit / 2 - unit/50;
-    const SIDES = 6;
+    
+
+    if(mouseIsPressed === true) {
+        if(mouseButton === LEFT && mouseCleared) {
+            console.log("LEFT");
+            SIDES += 1;
+        }
+        if(mouseButton === CENTER && mouseCleared) {
+            console.log("LEFT");
+            SIDES -= 1;
+        }
+
+        mouseCleared = false;
+    } else {
+        mouseCleared = true;
+    }
 
     beginShape();
     let weight = unit / 60;
@@ -34,7 +50,7 @@ function draw() {
     rotation += 0.1;
     rotation %= 360;
     strokeWeight(weight);
-    stroke("#830A48");
+    stroke("#E39FF6");
     noFill();
     for(let i = 0; i < radius * (dispersion / (angle * 5) ); i++) {
         let nextAngle = (angle / 10) * i;
