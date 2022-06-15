@@ -34,7 +34,7 @@ function draw() {
     rotation += 0.1;
     rotation %= 360;
     strokeWeight(weight);
-    stroke("#600047");
+    stroke("#830A48");
     noFill();
     for(let i = 0; i < radius * (dispersion / (angle * 5) ); i++) {
         let nextAngle = (angle / 10) * i;
@@ -52,7 +52,7 @@ function draw() {
         beginContour();
             weight = unit/40;
             strokeWeight(weight);
-            stroke("#EF3E36");
+            stroke("#000F08");
             fill("#F9F5E3")
             for(let i = SIDES; i > 0; i--) {
                 const x = radius * Math.cos((TWO_PI / SIDES) * i);
